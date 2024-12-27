@@ -84,37 +84,6 @@
         </field>
     </record>
 
-     <record id="view_gema_dashboard" model="ir.ui.view">
-        <field name="name">gema.contract.dashboard</field>
-        <field name="model">gema.contracts</field>
-        <field name="arch" type="xml">
-            <form string="Dashboard Contratos">
-                <sheet>
-                    <group>
-                        <group>
-                            <field name="name" class="oe_inline"/>
-                            <field name="state" readonly="1"/>
-                            <field name="total_amount" readonly="1"/>
-                        </group>
-                    </group>
-
-                    <notebook>
-                        <!-- Aquí mostramos el iframe que embebe el dashboard de Power BI -->
-                        <page string="Dashboard Power BI">
-                            <div class="oe_placeholder" style="height: 600px; overflow: auto;">
-                                <iframe width="100%" height="100%" 
-                                        src="https://app.powerbi.com/view?r={{ record.power_bi_url }}" 
-                                        frameborder="0" allowFullScreen="true">
-                                </iframe>
-                            </div>
-                        </page>
-                    </notebook>
-                </sheet>
-            </form>
-        </field>
-    </record>
-
-    <!-- Action for Contracts -->
     <record id="action_gema_contracts" model="ir.actions.act_window">
         <field name="name">Contratos</field>
         <field name="res_model">gema.contracts</field>
