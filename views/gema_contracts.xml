@@ -33,7 +33,7 @@
                     </h1>
                     <group>
                         <group>
-                            <field name="student_id" attrs="{'readonly': [('student_id', '!=', False)]}"/>
+                            <field name="student_id"/>
                             <field name="state" readonly="1"/>
                         </group>
                         <group>
