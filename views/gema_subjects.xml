@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="gema_subjects_view_form" model="ir.ui.view">
+        <field name="name">gema.subjects.view.form</field>
+        <field name="model">gema.subjects</field>
+        <field name="arch" type="xml">
+            <form string="Materia">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"></field>
+                            <field name="code"></field>
+                            <field name="credits"></field>
+                        </group>
+                        <group>
+                            <field name="state"></field>
+                            <field name="price"></field>
+                            <field name="teacher_id"></field>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Descripcion">
+                            <field name="description"/>
+                        </page>
+
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="gema_subjects_view_tree" model="ir.ui.view">
+        <field name="name">gema.subjects.view.tree</field>
+        <field name="model">gema.subjects</field>
+        <field name="arch" type="xml">
+            <tree string="Materia">
+                <field name="name"></field>
+                <field name="code"></field>
+                <field name="credits"></field>
+            </tree>
+        </field>
+    </record>
+
+    <record id="gema_subjects_action" model="ir.actions.act_window">
+        <field name="name">Materia</field>
+        <field name="res_model">gema.subjects</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,9 @@
+<odoo>
+    <menuitem id="menu_gestion_contratos_root" name="GEMA" sequence="1"/>
+
+    <!-- Submenús -->
+    <menuitem id="menu_students" name="Estudiantes" parent="menu_gestion_contratos_root" sequence="3" action="action_student"/>
+    <menuitem id="menu_subjects" name="Materias" parent="menu_gestion_contratos_root" sequence="2" action="gema_subjects_action"/>
+    <menuitem id="menu_contracts" name="Contratos" parent="menu_gestion_contratos_root" sequence="1" action="action_gema_contracts"/>
+
+</odoo>
