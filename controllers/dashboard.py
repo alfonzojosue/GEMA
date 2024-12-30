@@ -14,7 +14,6 @@ class DashboardController(http.Controller):
     
     @http.route('/gema/dashboard/prueba', type='http', auth="user", website=True)
     def dashboard_embebe(self, **kw):
-        contracts = request.env['gema.contracts'].search([])
         return request.render(
             'GEMA.embedded_dashboard_view',
         )

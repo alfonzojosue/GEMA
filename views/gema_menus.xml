@@ -7,4 +7,14 @@
     <menuitem id="menu_contracts" name="Contratos" parent="menu_gestion_contratos_root" sequence="1" action="action_gema_contracts"/>
     <menuitem id="menu_gema_payments" name="Gestión de Pagos" parent="menu_gestion_contratos_root" action="action_gema_payments"/>
 
+    <record id="action_dashboard_redirect" model="ir.actions.act_url">
+        <field name="name">Dashboard</field>
+        <field name="url">/gema/dashboard/prueba</field>
+    </record>
+
+    <!-- Menú que usa la acción definida anteriormente -->
+    <record id="menu_my_portal_redirect" model="ir.ui.menu">
+        <field name="name">Dashboard</field>
+        <field name="action" ref="action_dashboard_redirect"/>
+    </record>
 </odoo>

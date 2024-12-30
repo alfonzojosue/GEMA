@@ -10,12 +10,12 @@
 }
 
 h1 {
-    color: #007bff; /* Color azul */
-    font-size: 2rem; /* Tamaño de fuente */
-    font-weight: bold; /* Fuente en negrita */
-    text-align: center; /* Centramos el texto */
-    margin: 0 auto; /* Centramos si el padre tiene un ancho fijo */
-    width: 100%; /* Aseguramos que ocupe todo el ancho disponible */
+    color: #007bff;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
 }
 .card {
     border-radius: 8px;
@@ -65,7 +65,6 @@ h1 {
     background-color: #dc3545;
 }
 
-/* Input Search */
 #contractSearch {
     border-radius: 4px;
     padding: 10px;
