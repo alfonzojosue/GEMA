@@ -1,0 +1,48 @@
+<odoo>
+    <record id="view_gema_payments_tree" model="ir.ui.view">
+        <field name="name">gema.payments.tree</field>
+        <field name="model">gema.payments</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="contract_id"/>
+                <field name="date"/>
+                <field name="amount"/>
+                <field name="payment_method"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_gema_payments_form" model="ir.ui.view">
+        <field name="name">gema.payments.form</field>
+        <field name="model">gema.payments</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button string="Validar" type="object" name="action_validate_payment" states="pending" class="oe_highlight"/>
+                    <button string="Cancelar" type="object" name="action_cancel_payment" states="pending" class="oe_secondary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="contract_id" options="{'no_open': True}"/>
+                        <field name="date"/>
+                        <field name="amount"/>
+                        <field name="payment_method"/>
+                        <field name="state" readonly="1"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_gema_payments" model="ir.actions.act_window">
+        <field name="name">Pagos</field>
+        <field name="res_model">gema.payments</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+</odoo>

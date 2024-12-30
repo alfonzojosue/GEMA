@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_gema_subjects,gema_subjects,model_gema_subjects,,1,1,1,1
 access_gema_contracts,gema_contracts,model_gema_contracts,,1,1,1,1
 access_gema_contract_line,gema_contract_line,model_gema_contract_line,,1,1,1,1
+access_gema_payments,gema_payments,model_gema_payments,,1,1,1,1

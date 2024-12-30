@@ -1,0 +1,35 @@
+<odoo>
+    <template id="contracts_dashboard" name="Contracts Dashboard">
+        <t t-call="website.layout">
+        <t t-set="no_header" t-value="True"/>
+        <t t-set="no_footer" t-value="True"/>
+            <div id="wrap" class="oe_structure oe_empty contracts-dashboard">
+                <section class="s_website_form" data-vcss="001" data-snippet="s_website_form">
+                    <div class="container">
+                        <h2>GEMA: Gestión Educativa y Matriculación Administrativa</h2>
+                        <input type="text" id="contractSearch" class="form-control" placeholder="Buscar contrato..." />
+                        <div class="row">
+                            <t t-foreach="contracts" t-as="contract">
+                                <div class="col-md-4 mb-4">
+                                    <div class="card shadow-sm">
+                                        <div class="card-header bg-primary text-white">
+                                            <h5 class="card-title mb-0"><t t-esc="contract.name"/></h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p><strong>Estudiante:</strong> <t t-esc="contract.student_id.name"/></p>
+                                            <p><strong>Estado:</strong> <t t-esc="contract.state"/></p>
+                                            <p><strong>Monto Total:</strong> <t t-esc="contract.total_amount"/></p>
+                                        </div>
+                                        <div class="card-footer text-muted">
+                                            <a t-attf-href="/" class="btn btn-primary btn-sm">Ver Contrato</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>

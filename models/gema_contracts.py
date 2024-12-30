@@ -23,6 +23,11 @@ class GemaContracts(models.Model):
         string='Estado',
         default='draft',
     )
+    total_paid = fields.Float(
+        string='Total Pagado',
+        compute='_compute_total_paid',
+        store=True,
+    )
     student_id = fields.Many2one(
         'res.partner',
         string='Estudiante',
@@ -46,6 +51,23 @@ class GemaContracts(models.Model):
         string='Producto del Contrato',
         readonly=True,
     )
+
+    payment_ids = fields.One2many('gema.payments', 'contract_id', string='Pagos Asociados')
+
+    attachment_ids = fields.One2many(
+        'ir.attachment',
+        'res_id',
+        string='Adjuntos',
+        domain=[('res_model', '=', 'gema.contracts')]
+    )
+
+
+    @api.depends('payment_ids')
+    def _compute_total_paid(self):
+        for contract in self:
+            contract.total_paid = sum(payment.amount for payment in contract.payment_ids)
+            if contract.total_paid >= contract.total_amount and contract.state != 'confirmed':
+                contract.approve_contract()
 
     @api.model
     def create(self, vals):
@@ -86,7 +108,7 @@ class GemaContracts(models.Model):
             'type': 'binary',
         })
         return attachment
-    
+
     def create_invoice(self):
         """Crea una factura asociada al contrato"""
         if not self.student_id:
@@ -108,3 +130,15 @@ class GemaContracts(models.Model):
         self.invoice_id = invoice.id
 
         return invoice
+
+    def action_view_payments(self):
+        """Acción para abrir la vista de pagos asociados a un contrato."""
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Pagos del Contrato',
+            'view_mode': 'tree,form',
+            'res_model': 'gema.payments',
+            'domain': [('contract_id', '=', self.id)],
+            'context': {'default_contract_id': self.id},
+        }
+

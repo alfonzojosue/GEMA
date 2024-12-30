@@ -1,0 +1,77 @@
+/* contracts_dashboard.scss */
+
+.container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #007bff; /* Color azul */
+    font-size: 2rem; /* Tamaño de fuente */
+    font-weight: bold; /* Fuente en negrita */
+    text-align: center; /* Centramos el texto */
+    margin: 0 auto; /* Centramos si el padre tiene un ancho fijo */
+    width: 100%; /* Aseguramos que ocupe todo el ancho disponible */
+}
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    background-color: #007bff;
+    color: white;
+}
+
+.card-body {
+    padding: 15px;
+    font-size: 1rem;
+}
+
+.card-footer {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.badge-success {
+    background-color: #28a745;
+}
+
+.badge-warning {
+    background-color: #ffc107;
+}
+
+.badge-danger {
+    background-color: #dc3545;
+}
+
+/* Input Search */
+#contractSearch {
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+}
